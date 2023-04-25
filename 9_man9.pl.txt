@@ -1,0 +1,10 @@
+man(anand).
+man(arun).
+woman(anuradha).
+woman(pooja).
+parent(anand,parth).
+parent(arun,anuradha).
+parent(pooja,anuradha).
+parent(anuradha,parth).
+father(F,A) :-man(F),parent(F,A).
+mother(M,A) :-woman(F),parent(M,A).
