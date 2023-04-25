@@ -1,0 +1,12 @@
+
+solve_hanoi(0, _, _, _, []) :- !.  % Base case: no disks to move
+
+solve_hanoi(N, A, B, C, Moves) :-
+    M is N-1,
+    solve_hanoi(M, A, C, B, Moves1),  % Move the top M disks from A to B using C as a temporary peg
+    append(Moves1, [(A,C)], Moves2),  % Add the move to move the Nth disk from A to C
+    solve_hanoi(M, B, A, C, Moves3),  % Move the M disks from B to C using A as a temporary peg
+    append(Moves2, Moves3, Moves).   % Combine all the moves
+
+
+?- solve_hanoi(3, a, b, c, Moves).
